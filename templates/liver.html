@@ -1,0 +1,92 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="row" style="margin-bottom: 175px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1>Liver Disease Predictor</h1></center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('liverdisease') }}" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Age" placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Gender" placeholder="Gender (Male: 1, Female: 0)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="BMI" placeholder="BMI">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="AlcoholConsumption" placeholder="Alcohol Consumption">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Smoking" placeholder="Smoking (Yes: 1, No: 0)">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="GeneticRisk" placeholder="Genetic Risk (Yes: 1, No: 0)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="PhysicalActivity" placeholder="Physical Activity (Hours per Week)">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Diabetes" placeholder="Diabetes (Yes: 1, No: 0)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="Hypertension" placeholder="Hypertension (Yes: 1, No: 0)">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="LiverFunctionTest" placeholder="Liver Function Test (Score)">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-info btn-block" value="Predict">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% if tracker == 1 %}
+<div class="row" style="margin-top: -135px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {% if pred == 1 %}
+            <div class="card card-body alert alert-danger"><center>Sorry! Please consult DOCTOR.</center></div>
+        {% else %}
+            <div class="card card-body alert alert-success"><center>Great! You are HEALTHY.</center></div>
+        {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endif %}
+
+{% endblock %}

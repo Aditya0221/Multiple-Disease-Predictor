@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="row" style="margin-bottom: 125px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center><h1>Lung Cancer Predictor</h1></center>
+        <div class="card card-body" style="border: 1px solid black;">
+            <form class="form-horizontal" action="{{ url_for('lungcancer') }}" method="POST">
+        
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="yellow_fingers" placeholder="Yellow Fingers">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="anxiety" placeholder="Anxiety">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="peer_pressure" placeholder="Peer Pressure">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="chronic_disease" placeholder="Chronic Disease">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="fatigue" placeholder="Fatigue">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="allergy" placeholder="Allergy">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="wheezing" placeholder="Wheezing">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="alcohol_consuming" placeholder="Alcohol Consuming">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="coughing" placeholder="Coughing">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="shortness_of_breath" placeholder="Shortness of Breath">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="swallowing_difficulty" placeholder="Swallowing Difficulty">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="chest_pain" placeholder="Chest Pain">
+                        </div>
+                    </div>
+                </div>
+                
+                <input type="submit" class="btn btn-info btn-block" value="Predict">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% if tracker == 1 %}
+<div class="row" style="margin-top: 25px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {% if pred == 1 %}
+            <div class="card card-body alert alert-danger"><center>Sorry! Please consult a doctor.</center></div>
+        {% else %}
+            <div class="card card-body alert alert-success"><center>Great! You are healthy.</center></div>
+        {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endif %}
+{% endblock %}
