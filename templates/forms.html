@@ -1,36 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "adityamalviya5684@gmail.com",
-                Password: "neversay", // Note: Use an app password instead of your actual password
-                To: 'badenzyme22@gmail.com',
-                From: document.getElementById("email").value,
-                Subject: "New patient enquiry",
-                Body: "Name: " + document.getElementById("name").value +
-                    "<br> Age: " + document.getElementById("Age").value + // Changed to Age for clarity
-                    "<br> Gender: " + document.getElementById("Gender").value +
-                    "<br> Contact no: " + document.getElementById("contactNo").value + // Ensure the ID is correct
-                    "<br> Email id: " + document.getElementById("Email").value
-            }).then(
-                message => alert(message)
-            ).catch(
-                error => alert("Error: " + error) // Catch any error and alert it
-            );
-        }
-    </script>
-
-</head>
-<body>
-    
-
 {% extends 'main.html' %}
 {% block content %}
 {% if message %}
@@ -41,7 +8,10 @@
         <div class="col-md-6">
             <center><h1>Consult Doctor</h1></center>
             <div class="card card-body" style="border: 1px solid black;">
-                <form class="form-horizontal" onsubmit="sendEmail(); return false; reset();">
+                <form class="form-horizontal" action="https://api.web3forms.com/submit" method="POST">
+                    <div class="form-group">
+                        <input type="hidden" name="access_key" value="0fcb5415-6650-41b3-bafa-1f07e7b19da1">
+                    </div>
                     <div class="form-group">
                         <input style="border: 1px solid black;" class="form-control" type="text" name="Patient Name" placeholder="Name of Patient " required>
                     </div>
@@ -66,8 +36,4 @@
         </div>
         <div class="col-md-3"></div>
     </div>
-</body>
-
 {% endblock %}
-
-</html>
