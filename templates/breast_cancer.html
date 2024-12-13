@@ -76,11 +76,6 @@
                             <input style="border: 1px solid black;" class="form-control" type="text" name="texture_se" placeholder="texture_se">
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="perimeter_se" placeholder="perimeter_se">
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
@@ -99,12 +94,9 @@
                             <input style="border: 1px solid black;" class="form-control" type="text" name="compactness_se" placeholder="compactness_se">
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="concavity_se" placeholder="concavity_se">
-                        </div>
+
                     </div>
-                </div>
+
 
                 <div class="row">
                     <div class="col-md-4">
@@ -120,11 +112,6 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <input style="border: 1px solid black;" class="form-control" type="text" name="fractal_dimension_se" placeholder="fractal_dimension_se">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input style="border: 1px solid black;" class="form-control" type="text" name="radius_worst" placeholder="radius_worst">
                         </div>
                     </div>
                 </div>
@@ -182,12 +169,32 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                        <input style="border: 1px solid black;" class="form-control" type="text" name="perimeter_se" placeholder="perimeter_se">
+                      </div>
+                   </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <input style="border: 1px solid black;" class="form-control" type="text" name="concavity_se" placeholder="concavity_se">
+                      </div>
+                   </div>    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input style="border: 1px solid black;" class="form-control" type="text" name="radius_worst" placeholder="radius_worst">
+                        </div>
+                    </div>
+                </div>
+
 
                 <input type="submit" class="btn btn-info btn-block" value="Predict">
             </form>
         </div>
     </div>
     <div class="col-md-2"></div>
+</div>
 </div>
 {% if tracker == 1 %}
 <div class="row" style="margin-top: 25px;">
